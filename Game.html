@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toy Rebellion: Evolution</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, #f0f0f0, #d9e6ff);
+      margin: 0;
+      padding: 20px;
+    }
+    #game {
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 800px;
+    }
+    #player, #enemy {
+      margin: 15px;
+      padding: 15px;
+      border: 3px solid;
+      display: inline-block;
+      width: 200px;
+      border-radius: 10px;
+    }
+    #player { border-color: #4CAF50; background: #e6ffe6; }
+    #enemy { border-color: #f44336; background: #ffe6e6; }
+    .character-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+    .health-bar {
+      width: 100%;
+      background: #ddd;
+      border-radius: 5px;
+      height: 20px;
+      margin-top: 10px;
+    }
+    .health-fill {
+      height: 100%;
+      border-radius: 5px;
+      transition: width 0.5s ease;
+    }
+    #player .health-fill { background: #4CAF50; }
+    #enemy .health-fill { background: #f44336; }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    button:hover { transform: scale(1.05); }
+    #attackBtn { background: #4CAF50; color: white; }
+    #attackBtn:hover { background: #45a049; }
+    #spinBtn { background: #2196F3; color: white; }
+    #spinBtn:hover { background: #1976D2; }
+    #resetBtn { background: #ff9800; color: white; }
+    #resetBtn:hover { background: #e68900; }
+    #puzzle, #wheel, #rewardHistory { margin: 20px; }
+    #message {
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      min-height: 30px;
+    }
+    .success { color: #4CAF50; background: #e6ffe6; }
+    .failure { color: #f44336; background: #ffe6e6; }
+    #wheel { position: relative; }
+    #spinBtn.spinning {
+      animation: spin 1s linear 3;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    canvas {
+      margin: 20px auto;
+      display: block;
+    }
+    @media (max-width: 600px) {
+      #game { padding: 10px; max-width: 100%; }
+      #player, #enemy { width: 45%; margin: 5
